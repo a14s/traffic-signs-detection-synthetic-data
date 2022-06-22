@@ -4,10 +4,23 @@ from augment import *
 
 #   TODO: generate random values for noise, blur, saturation, contrast and brightness
 
+def random_probability(prob=0.5):
+    """
+    trueCount = 0
+    falseCount = 0
+    for i in range(10000):
+        if random_probability(0.3):
+            trueCount+=1
+        else:
+            falseCount+=1
+    print(trueCount/10000, falseCount/10000)
+    """
+    return random.randint(0, 100) >= (1 - prob)*100
+
 def random_position(overlay, background, overflow_ratio=0):
     h, w, c = overlay.shape
     hBG, wBG, cBG = background.shape
-    if overlay != background:
+    if not np.array_equiv(overlay, background):
         y = np.round(random.randrange(int(-h * overflow_ratio), int(hBG - h*(1-overflow_ratio))))
         x = np.round(random.randrange(int(-w * overflow_ratio), int(wBG - w*(1-overflow_ratio))))
         return x, y
