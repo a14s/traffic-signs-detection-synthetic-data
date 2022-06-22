@@ -1,1 +1,1 @@
-# synthetic_data_for_traffic_signs
+# Traffic Signs Detection Using Synthetic Data
