@@ -17,17 +17,29 @@ def random_probability(prob=0.5):
     """
     return random.randint(0, 100) >= (1 - prob)*100
 
+def random_number(range=(0, 100)):
+    if type(range) == int:
+        range = (0, range)
+    return random.randint(range[0], range[1])
+
+def random_number_gaussian(range=(0, 100)):
+    if type(range) == int:
+        range = (0, range)
+    num1 = random.randint(range[0], range[1]//2)
+    num2 = random.randint(range[1]//2, range[1])
+    return num1 + num2
+
 def random_position(overlay, background, overflow_ratio=0):
     h, w, c = overlay.shape
     hBG, wBG, cBG = background.shape
     if not np.array_equiv(overlay, background):
         y = np.round(random.randrange(int(-h * overflow_ratio), int(hBG - h*(1-overflow_ratio))))
         x = np.round(random.randrange(int(-w * overflow_ratio), int(wBG - w*(1-overflow_ratio))))
-        return x, y
+        return [x, y]
     else:
         y = np.round(random.randrange(int(-h * overflow_ratio), int(h*(1-overflow_ratio))))
         x = np.round(random.randrange(int(-w * overflow_ratio), int(w*(1-overflow_ratio))))
-        return x, y 
+        return [x, y]
 
 def random_tilt(range, step): #   from - range to range
     return random.randrange(-range - 1, range + 1, step)
@@ -72,6 +84,18 @@ def overlay_transparent(overlay, background, position):
         background[hStart:hLimit, wStart:wLimit, c] = alpha[hoStart:hoLimit, woStart:woLimit] * overlay[hoStart:hoLimit, woStart:woLimit, c] + (1 - alpha)[hoStart:hoLimit, woStart:woLimit] * background[hStart:hLimit, wStart:wLimit, c]
 
     return background
+
+def random_lighting(img):
+    mask = np.zeros_like(img, dtype=np.uint8)
+    h, w, ch = mask.shape
+    for i in range(w//2, 0, -10):
+        for ii in range(i, w//2+1, 5):
+            x, y = random_position(mask, mask)
+            rx = random_number((0, i))
+            ry = random_number((0, i))
+            #idk = np.array(np.random.randint(0, 100, size=(ry, rx)), dtype=np.uint8)
+            mask[y:y+ry, x:x+rx] = random_number((0, 255))
+    return illumination(img, mask)
 
 def main():
     return

@@ -126,12 +126,12 @@ def add_motion_blur(image, k_size): # needs negative values and y motion blur
     return cv2.filter2D(image, -1, kernel)
 
 def add_saturation(image, value):
-    hsv = cv2.cvtColor(image, cv2.COLOR_RGB2HSV)
+    hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
     h, s, v = cv2.split(hsv)
     s = s*value
     s = np.clip(s,0,255)
     hsv = cv2.merge([h,s,v])
-    return cv2.cvtColor(hsv, cv2.COLOR_HSV2RGB)
+    return cv2.cvtColor(hsv, cv2.COLOR_HSV2BGR)
 
 def shear_image(image, dx, dy, maxX, maxY): #values from 0 to 1
     if dx == 0 and dy == 0:
@@ -156,14 +156,22 @@ def shear_image(image, dx, dy, maxX, maxY): #values from 0 to 1
 def mirror_image(image, axis=0): # 0 for horizontal, 1 for vertical, -1 for both
     return cv2.flip(image, flipCode=axis)
 
-def erase_rectangle(image, tl, br): #make sure works for alpha
+def erase_rectangle(image, tl, br, noise=False): #make sure works for alpha
     h, w, c = image.shape
-    if c == 1:
-        image[tl[1]:br[1], tl[0]:br[0]] = 0
-    elif c == 3:
-        image[tl[1]:br[1], tl[0]:br[0]] = (0, 0, 0)
-    elif c == 4:
-        image[tl[1]:br[1], tl[0]:br[0]] = (0, 0, 0, 255) # not sure
+    if not noise:
+        if c == 1:
+            image[tl[1]:br[1], tl[0]:br[0]] = 0
+        elif c == 3:
+            image[tl[1]:br[1], tl[0]:br[0]] = (0, 0, 0)
+        elif c == 4:
+            image[tl[1]:br[1], tl[0]:br[0]] = (0, 0, 0, 0) # not sure
+    else:
+        if c == 1:
+            image[tl[1]:br[1], tl[0]:br[0]] = np.random.randint(0, 255)
+        elif c == 3:
+            image[tl[1]:br[1], tl[0]:br[0]] = np.random.randint(0, 255, size=(3))
+        elif c == 4:
+            image[tl[1]:br[1], tl[0]:br[0]] = np.random.randint(0, 255, size=(4)) # not sure
 
     return image
 
@@ -198,8 +206,37 @@ def erase_pattern(image, ratio, border_ratio=0, step_ratio=0, pattern=0): #borde
     else:
         return image
 
+def tweak_hue(image, percent=0):
+    if percent == 0:
+        return image
+    percent = percent/100
+    hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+    h, s, v = cv2.split(hsv)
+    #h = np.full_like(h, 180)
+    h = (h + 180*percent) % 180
+    h = np.clip(h,0,255)
+    h = np.array(h, dtype=np.uint8)
+    hsv = cv2.merge([h,s,v])
+    return cv2.cvtColor(hsv, cv2.COLOR_HSV2BGR)
+
+def illumination(image, mask):
+    mask = cv2.GaussianBlur(mask, (121, 121), 0)
+    return cv2.bitwise_or(image, mask)
+
 def main():
     return
 
 if __name__ == "__main__":
     main()
+
+
+
+
+"""
+hue:
+    img = cv2.resize(cv2.imread("./objects/no_entry.png", cv2.IMREAD_UNCHANGED), (200, 200))
+    for i in range(-10, 11):
+        print(i)
+        cv2.imshow("w", tweak_hue(img, i))
+        cv2.waitKey(0)
+"""
