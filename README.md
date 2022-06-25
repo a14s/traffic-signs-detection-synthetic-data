@@ -1,5 +1,5 @@
-# Traffic Signs Detection Using Synthetic Data
-
+ # Traffic Signs Detection Using Synthetic Data
+ ## This repo compares the results of an YOLOv5 trained on real data vs synthetic data with different synthetic data percentages. It also covers the techniques used for the generation of the synthetic data used.
 |Model          |True Positives | False Positives | False Negatives |
 |:-------------:|:-------------:|:---------------:|:---------------:|
 |Real Data Only (300 Photos)| 67 | 62 | 14 |
