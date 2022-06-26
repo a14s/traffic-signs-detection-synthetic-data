@@ -15,8 +15,8 @@
  
  ### Real Dataset:  
  &nbsp;&nbsp;&nbsp;&nbsp; Some example photos from the real dataset to be used:  
+ 
  INSERT EXAMPLE REAL PHOTOS  
-   
    
  ### Synthetic Dataset Generation Process:
 &nbsp;&nbsp;&nbsp;&nbsp; The data required to train an object detection model with similar or better accuracy to real data must be variant and must depict real life situations. Some examples for such situations include perspective changes, variable lighting, blurring and others. Thus, the data generation algorithm to be used must include such augmentations.  
@@ -35,10 +35,13 @@
  ![color shades](https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/3e2c6850716d6287049e1da97431fc6f829488d0/assets/colors.png "Different Color Shades") 
    
  #### Light:
+ 
+ &nbsp;&nbsp;&nbsp;&nbsp; A simple algorithm that can generate irregular lighting on the source sign can also be used to accurately depict real life scenes. 
+ ![irregular lighting](https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/3e2c6850716d6287049e1da97431fc6f829488d0/assets/irregular_lighting.png "Irregular lighting") 
+ 
  &nbsp;&nbsp;&nbsp;&nbsp; To imitiate real life scenes, different lightings must be accounted for. Brightness and Contrast of the source sign image can be randomized.  
  ![brightness contrast](https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/3e2c6850716d6287049e1da97431fc6f829488d0/assets/lighting.png "Different Brighness and Contrast") 
- A simple algorithm that can generate irregular lighting on the source sign can also be used to accurately depict real life scenes. 
- ![irregular lighting](https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/3e2c6850716d6287049e1da97431fc6f829488d0/assets/irregular_lighting.png "Irregular lighting") 
+
    
  #### Blur:
  &nbsp;&nbsp;&nbsp;&nbsp; Cameras aren't perfect, they won't always be focusing on the object they're supposed to focus on. Camera Defocus, Motion Blurring, and other similar effects must also be accounted for. Therefore, a gaussian blur and motion blur algorithms will be used for that.  
