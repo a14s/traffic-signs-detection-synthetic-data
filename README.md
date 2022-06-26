@@ -1,5 +1,5 @@
 # Traffic Signs Detection Using Synthetic Data
-### This repo compares the results of a YOLOv5 object detection model trained on real data vs synthetic data. It also covers the techniques used for the generation of the synthetic data used.  
+### This repo compares the results of a YOLOv5 object detection model trained on real data vs synthetic data of a traffic sign. It also covers the techniques used for the generation of the synthetic data used.  
 
 ### Introduction  
 
@@ -55,6 +55,10 @@
  &nbsp;&nbsp;&nbsp;&nbsp; In real life scenarios, many traffic signs can be deformed and covered with scratches, stickers, paint, and other stuff. This can be accounted for in synthetic data by applying Noise to the source signs. Another method is to randomly erase a part of the source sign so the model learns to not depend strictly on a full set of features.  
  ![deformation](https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/3e2c6850716d6287049e1da97431fc6f829488d0/assets/deformed.png "Different Deformation") 
    
+ #### Backgrounds:
+ &nbsp;&nbsp;&nbsp;&nbsp; For the last step, the sign image generated would be overlayed on a random background image in a random position. The background images used were frames taken from videos of a car driving around the city to properly imitate real life backgrounds. To augment the backgrounds and lessen the dependence of the model on them, a pattern of squares or rectangles are replaced with black pixels for a small amount of the images.  
+ 
+ 
  #### Example Synthetic Photos Generated:
 <p align="center">
 <img src="https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/765b9d227abd4f820d4ba927badf3d5b25c7b15e/assets/example%20photos/synthetic_2.jpg" width=340> <img src="https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/765b9d227abd4f820d4ba927badf3d5b25c7b15e/assets/example%20photos/synthetic_3.jpg" width=340> <img src="https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/765b9d227abd4f820d4ba927badf3d5b25c7b15e/assets/example%20photos/synthetic_1.jpg" width=280> 
