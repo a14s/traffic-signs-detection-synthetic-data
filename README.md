@@ -57,7 +57,7 @@
    
  #### Example Synthetic Photos Generated:
 <p align="center">
-<img src="https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/765b9d227abd4f820d4ba927badf3d5b25c7b15e/assets/example%20photos/synthetic_2.jpg" width=480> <img src="https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/765b9d227abd4f820d4ba927badf3d5b25c7b15e/assets/example%20photos/synthetic_3.jpg" width=480> <img src="https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/765b9d227abd4f820d4ba927badf3d5b25c7b15e/assets/example%20photos/synthetic_1.jpg" width=380> 
+<img src="https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/765b9d227abd4f820d4ba927badf3d5b25c7b15e/assets/example%20photos/synthetic_2.jpg" width=340> <img src="https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/765b9d227abd4f820d4ba927badf3d5b25c7b15e/assets/example%20photos/synthetic_3.jpg" width=340> <img src="https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/765b9d227abd4f820d4ba927badf3d5b25c7b15e/assets/example%20photos/synthetic_1.jpg" width=280> 
 </p>
    
    
@@ -87,7 +87,7 @@
 
 ##### Example detections from the Tests
  <p align="center">
-<img src="https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/765b9d227abd4f820d4ba927badf3d5b25c7b15e/assets/example%20photos/test_real_3.jpg" width=480> <img src="https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/765b9d227abd4f820d4ba927badf3d5b25c7b15e/assets/example%20photos/test_synthetic_3.jpg" width=480> <img src="https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/765b9d227abd4f820d4ba927badf3d5b25c7b15e/assets/example%20photos/test_3070300_3.jpg" width=480> <img src="https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/765b9d227abd4f820d4ba927badf3d5b25c7b15e/assets/example%20photos/test_30701000_3.jpg" width=480>
+<img src="https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/765b9d227abd4f820d4ba927badf3d5b25c7b15e/assets/example%20photos/test_real_3.jpg" width=380> <img src="https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/765b9d227abd4f820d4ba927badf3d5b25c7b15e/assets/example%20photos/test_synthetic_3.jpg" width=380> <img src="https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/765b9d227abd4f820d4ba927badf3d5b25c7b15e/assets/example%20photos/test_3070300_3.jpg" width=380> <img src="https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/765b9d227abd4f820d4ba927badf3d5b25c7b15e/assets/example%20photos/test_30701000_3.jpg" width=380>
 </p>  
 
  ###### *Top Left: Real Data Only (300 Photos), Top Right: Synthetic Data Only (1200 Photos), Bottom Left: 30% Real and 70% Synthetic Data (300 Photos), Bottom Right: 30% Real and 70% Synthetic Data (1000 Photos)*
