@@ -15,8 +15,9 @@
  
  ### Real Dataset:  
  &nbsp;&nbsp;&nbsp;&nbsp; Some example photos from the real dataset to be used:  
- 
- INSERT EXAMPLE REAL PHOTOS  
+ <p align="center">
+<img src="https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/765b9d227abd4f820d4ba927badf3d5b25c7b15e/assets/example%20photos/real_1.jpg" width=480> <img src="https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/765b9d227abd4f820d4ba927badf3d5b25c7b15e/assets/example%20photos/real_2.jpg" width=480> <img src="https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/765b9d227abd4f820d4ba927badf3d5b25c7b15e/assets/example%20photos/real_3.jpg" width=480>
+</p>
    
  ### Synthetic Dataset Generation Process:
 &nbsp;&nbsp;&nbsp;&nbsp; The data required to train an object detection model with similar or better accuracy to real data must be variant and must depict real life situations. Some examples for such situations include perspective changes, variable lighting, blurring and others. Thus, the data generation algorithm to be used must include such augmentations.  
@@ -55,7 +56,9 @@
  ![deformation](https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/3e2c6850716d6287049e1da97431fc6f829488d0/assets/deformed.png "Different Deformation") 
    
  #### Example Synthetic Photos Generated:
- INSERT EXAAMPLE PHOTOS HERE  
+<p align="center">
+<img src="https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/765b9d227abd4f820d4ba927badf3d5b25c7b15e/assets/example%20photos/synthetic_2.jpg" width=480> <img src="https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/765b9d227abd4f820d4ba927badf3d5b25c7b15e/assets/example%20photos/synthetic_3.jpg" width=480> <img src="https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/765b9d227abd4f820d4ba927badf3d5b25c7b15e/assets/example%20photos/synthetic_1.jpg" width=380> 
+</p>
    
    
  ### Training
@@ -75,9 +78,19 @@
 |30% Real and 70% Synthetic Data (300 Photos)| 72 | 67 | 9 |
 |30% Real and 70% Synthetic Data (1000 Photos)| 78 | 33 | 3 |  
 
+ &nbsp;&nbsp;&nbsp;&nbsp; The results show promising imrpovements. The real dataset model was able to detect 82% of the signs in the test set, while the models trained on mixed data were able to detect 89% and 96% respectively. The synthetic data only model didn't good results, however it was noticed that it detects larger sized traffic signs and its confidence can even be higher than the real dataset model; This conveys that the real dataset lacked enough examples of larger signs and the synthetic dataset lacked enough smaller examples of the signs.
 
-example true photos
-example false photos
+<p align="center">
+<img src="https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/765b9d227abd4f820d4ba927badf3d5b25c7b15e/assets/real_data.png" width=380> <img src="https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/765b9d227abd4f820d4ba927badf3d5b25c7b15e/assets/synthetic_data.png" width=380> <img src="https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/765b9d227abd4f820d4ba927badf3d5b25c7b15e/assets/3070300.png" width=380> <img src="https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/765b9d227abd4f820d4ba927badf3d5b25c7b15e/assets/30701000.png" width=380>
+</p>
+ &nbsp;&nbsp;&nbsp;&nbsp; According to the confidence distributions of the detections, most false positive detections lay between 0.1 and 0.4. Thus, increasing the confidence threshold to 0.5 would get rid of most false-positive detections. This increase in the threshold would decrease the amount of True-Positive detections by 20% of the original number of detections, while the best dataset would only get affected by a 7% decrease.  
+
+##### Example detections from the Tests
+ <p align="center">
+<img src="https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/765b9d227abd4f820d4ba927badf3d5b25c7b15e/assets/example%20photos/test_real_3.jpg" width=480> <img src="https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/765b9d227abd4f820d4ba927badf3d5b25c7b15e/assets/example%20photos/test_synthetic_3.jpg" width=480> <img src="https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/765b9d227abd4f820d4ba927badf3d5b25c7b15e/assets/example%20photos/test_3070300_3.jpg" width=480> <img src="https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/765b9d227abd4f820d4ba927badf3d5b25c7b15e/assets/example%20photos/test_30701000_3.jpg" width=480>
+</p>  
+
+ ###### *Top Left: Real Data Only (300 Photos), Top Right: Synthetic Data Only (1200 Photos), Bottom Left: 30% Real and 70% Synthetic Data (300 Photos), Bottom Right: 30% Real and 70% Synthetic Data (1000 Photos)*
 
 ### Possible Improvements
  &nbsp;&nbsp;&nbsp;&nbsp; Although the results show an improvment in the detection of the signs with the mixed datasets, synthetic data alone didn't show good results. The number of false positives is still high for the mixed datasets. Here are some methods to improve the results more:
