@@ -16,7 +16,7 @@
  ### Real Dataset:  
  &nbsp;&nbsp;&nbsp;&nbsp; Some example photos from the real dataset to be used:  
  <p align="center">
-<img src="https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/765b9d227abd4f820d4ba927badf3d5b25c7b15e/assets/example%20photos/real_1.jpg" width=480> <img src="https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/765b9d227abd4f820d4ba927badf3d5b25c7b15e/assets/example%20photos/real_2.jpg" width=480> <img src="https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/765b9d227abd4f820d4ba927badf3d5b25c7b15e/assets/example%20photos/real_3.jpg" width=480>
+<img src="https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/765b9d227abd4f820d4ba927badf3d5b25c7b15e/assets/example%20photos/real_1.jpg" width=380> <img src="https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/765b9d227abd4f820d4ba927badf3d5b25c7b15e/assets/example%20photos/real_2.jpg" width=380> <img src="https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/765b9d227abd4f820d4ba927badf3d5b25c7b15e/assets/example%20photos/real_3.jpg" width=380>
 </p>
    
  ### Synthetic Dataset Generation Process:
