@@ -17,16 +17,19 @@
 ### *All photos in the synthetic dataset where generated using the same source sign. Due to this, many augmentation processes must be applied to imitiate real life signs.*
  
  
- #### Perspective:
+ #### Perspective: 
  
+ ![alt text](https://github.com/a14s/traffic-signs-detection-synthetic-data/tree/main/assets/tilted.png "Different Perspective Angles")
+ 
+&nbsp;&nbsp;&nbsp;&nbsp; Since only one photo will be used as the source for all other photos, The source sign must be rotated along the y-axis to simulate different perspectives that can be found in real life. Traffic Signs lack 3D features and can be represented easily using 2D transformations. The scale of the sign must also be changed to achieve higher accuracy in relation to real life scenes.
  #### Color:
- 
+ &nbsp;&nbsp;&nbsp;&nbsp; Different textures, lighting, reflections, and natural occurances such as dust, rust, and others can change the color of the traffic signs or at least how the camera perceives it. To account for this, adjustments can be made to the Hue, Saturation, and color degree of the source sign.
  #### Light:
- 
+ &nbsp;&nbsp;&nbsp;&nbsp; To imitiate real life scenes, different lightings must be accounted for. Brightness and Contrast of the source sign image can be randomized. A simple algorithm that can generate irregular lighting on the source sign can also be used to accurately depict real life scenes.
  #### Blur:
- 
+ &nbsp;&nbsp;&nbsp;&nbsp; Cameras aren't perfect, they won't always be focusing on the object it's supposed to focus on. Camera Defocus, Motion Blurring, and other similar effects must also be accounted for. Therefore, a gaussian blur and motion blur algorithms will be used for that.
  #### Deformation:
- 
+ &nbsp;&nbsp;&nbsp;&nbsp; In real life scenarios, many traffic signs can be deformed and covered with scratches, stickers, paint, and other stuff. This can be accounted for in synthetic data by applying Noise to the source signs. Another method is to randomly erase a part of the source sign so our model learns to not depend strictly on a full set of features.
  
  
  
