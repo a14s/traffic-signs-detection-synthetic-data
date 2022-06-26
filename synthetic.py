@@ -88,7 +88,7 @@ def overlay_transparent(overlay, background, position):
 def random_lighting(img):
     mask = np.zeros_like(img, dtype=np.uint8)
     h, w, ch = mask.shape
-    for i in range(w//2, 0, -10):
+    for i in range(w//2, 0, -20):
         for ii in range(i, w//2+1, 5):
             x, y = random_position(mask, mask)
             rx = random_number((0, i))

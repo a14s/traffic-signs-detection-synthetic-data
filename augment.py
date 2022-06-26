@@ -220,7 +220,7 @@ def tweak_hue(image, percent=0):
     return cv2.cvtColor(hsv, cv2.COLOR_HSV2BGR)
 
 def illumination(image, mask):
-    mask = cv2.GaussianBlur(mask, (121, 121), 0)
+    mask = cv2.GaussianBlur(mask, (153, 153), 0)
     return cv2.bitwise_or(image, mask)
 
 def main():

@@ -19,18 +19,16 @@ bboxTransform = A.Compose([
     A.MotionBlur(7, p=0.3),
     ])
 
-def cutouts(image):
-    erase_pattern(image, 0.2)
-
 def main():
     count = 0
+    sign_per_image = 1
     for bg in backgrounds:
         bg_img = cv2.imread(bg, cv2.IMREAD_UNCHANGED)
         bg_h, bg_w, bg_ch = bg_img.shape
         bg_copy = np.copy(bg_img)
         labels = []
         for s, src in enumerate(source_images):
-            for i in range(1):
+            for i in range(sign_per_image):
                 src_img = cv2.imread(objects_path + src, cv2.IMREAD_UNCHANGED)
                 src_h, src_w, src_ch = src_img.shape
 
@@ -96,7 +94,7 @@ if __name__ == "__main__":
     for pic in val:
         print(pic)
         shutil.move(results_path+pic, val_path)
-        shutil.move(results_path+pic.split(".")[0]+".txt", val_path)"""
+        shutil.move(results_path+pic.split(".")[0]+".txt", val_path)
 
     real_photos_path = "./only-no-entry/"
     real_photos = [photo for photo in os.listdir(real_photos_path) if photo.split(".")[1] == "jpg"]
@@ -121,3 +119,4 @@ if __name__ == "__main__":
         print(pic)
         shutil.copy(real_photos_path+pic, val_path)
         shutil.copy(real_photos_path+pic.split(".")[0]+".txt", val_path)
+    """
