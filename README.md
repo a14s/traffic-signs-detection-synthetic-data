@@ -20,8 +20,11 @@
    
  ### Synthetic Dataset Generation Process:
 &nbsp;&nbsp;&nbsp;&nbsp; The data required to train an object detection model with similar or better accuracy to real data must be variant and must depict real life situations. Some examples for such situations include perspective changes, variable lighting, blurring and others. Thus, the data generation algorithm to be used must include such augmentations.  
+<p align="center">
+<img src="https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/34e8902fefd7637283f4abef68df54ac7543a5a3/assets/no_entry.png" width=152>
+</p>
+ 
 
-![source sign image](https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/3e2c6850716d6287049e1da97431fc6f829488d0/assets/no_entry.png "Source Sign Image")
 
  &nbsp;&nbsp;&nbsp;&nbsp; ***All photos in the synthetic dataset where generated using the same source sign. Due to this, many augmentation processes must be applied to imitiate real life signs.***
  
@@ -59,7 +62,7 @@
  &nbsp;&nbsp;&nbsp;&nbsp; Training was done using the YOLOv5m model architecture on Pytorch. All models were trained with the same settings: 50 epochs, batch size of 32, input image of size 416x416, and the same hyper-parameters. For the splitting of the datasets, both the real and synthetic datasets were split into a train set, a validation set, and a test set. From the train sets of the real and synthetic datasets, the train sets of the mixed datasets were then made.  
 ###### ***The Synthetic Dataset was validated on the synthetic validation split to check the health of the dataset. The rest of the models were all validated on the same real validation split to check their performance.***  
   
- <img src="https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/3e2c6850716d6287049e1da97431fc6f829488d0/assets/mAP_0.5.svg" width="400"> 
+ <img src="https://github.com/a14s/traffic-signs-detection-synthetic-data/blob/34e8902fefd7637283f4abef68df54ac7543a5a3/assets/mAPs.png"> 
 
  ### Testing
  &nbsp;&nbsp;&nbsp;&nbsp; Testing was done on the same test set for all models. The test set used contains only real photos. The input image size used for inference was 416x416. The table below shows the test results of 61 real photos containing 81 traffic signs in total:
